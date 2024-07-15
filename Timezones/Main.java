@@ -79,6 +79,10 @@ public class Main {
                 startTime += 12 * 60;
             }
 
+            if (test[1].equals("a.m.") && startTime / 60 == 12) {
+                startTime = startTime % 60;
+            }
+
             tests[i] = new Test(startTime, from, to);
         }
 
