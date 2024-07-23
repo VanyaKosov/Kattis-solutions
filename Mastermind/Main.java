@@ -45,39 +45,4 @@ public class Main {
 
         writer.close();
     }
-
-    /*
-        HashMap<Character, Integer> missedCodeLetters = new HashMap<>();
-        HashMap<Character, Integer> missedGuessLetters = new HashMap<>();
-    
-        if (missedCodeLetters.containsKey(codeLetter)) {
-            missedCodeLetters.put(codeLetter, missedCodeLetters.get(codeLetter) + 1);
-        } else {
-            missedCodeLetters.put(codeLetter, 1);
-        }
-    
-        if (missedGuessLetters.containsKey(guessLetter)) {
-            missedGuessLetters.put(guessLetter, missedGuessLetters.get(guessLetter) + 1);
-        } else {
-            missedGuessLetters.put(guessLetter, 1);
-        }
-    
-        if (missedCodeLetters.containsKey(guessLetter)) {
-            same++;
-            missedCodeLetters.put(guessLetter, missedCodeLetters.get(guessLetter) - 1);
-            if (missedCodeLetters.get(guessLetter) == 0) {
-                missedCodeLetters.remove(guessLetter);
-            }
-    
-            continue;
-        }
-    
-        if (missedGuessLetters.containsKey(codeLetter)) {
-            same++;
-            missedGuessLetters.put(codeLetter, missedGuessLetters.get(codeLetter) - 1);
-            if (missedGuessLetters.get(codeLetter) == 0) {
-                missedGuessLetters.remove(codeLetter);
-            }
-        }
-     */
 }
