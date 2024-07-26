@@ -49,11 +49,6 @@ public class Main {
 
             for (int row = 1; row < map.length - 1; row++) {
                 for (int col = 1; col < map[0].length - 1; col++) {
-                    if (map[row][col] == -1 && (map[row - 1][col] == 0 || map[row + 1][col] == 0 ||
-                            map[row][col - 1] == 0 || map[row][col + 1] == 0)) {
-                        map[row][col] = currentRing;
-                        addedRing = true;
-                    }
                     if (map[row][col] == -1
                             && (map[row - 1][col] == currentRing - 1 || map[row + 1][col] == currentRing - 1 ||
                                     map[row][col - 1] == currentRing - 1 || map[row][col + 1] == currentRing - 1)) {
