@@ -1,0 +1,5 @@
+3
+DROP 3
+DROP 5
+TAKE 8
+0
