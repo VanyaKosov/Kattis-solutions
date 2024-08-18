@@ -1,0 +1,10 @@
+3 LET Y = 10
+5 LET X = 5
+10 LET Z = 2147483647
+15 LET A = 2
+20 LET Z = Z * A
+30 PRINTLN "The answer should be -2"
+40 PRINT "The answer is: "
+50 PRINTLN Z
+55 LET X = X - 1
+60 IF X > 0 THEN GOTO Y
