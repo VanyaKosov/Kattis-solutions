@@ -15,14 +15,28 @@ public class Main {
         int counter = 0;
         for (int i = 0; i < sequence.length; i++) {
             int currentNum = sequence[i];
-            counter += nodes[currentNum].depth;
+            Node currentNode = nodes[currentNum];
+            counter += currentNode.depth;
             WRITER.write(Integer.toString(counter));
             WRITER.newLine();
 
-            int rightSegmentLength = nodes[currentNum].segmentEnd - currentNum;
-            int leftSegmentLength = currentNum - nodes[currentNum].segmentStart;
+            currentNode.depth++;
+            Node newNode;
+            int rightSegmentLength = currentNode.segmentEnd - currentNum;
+            int leftSegmentLength = currentNum - currentNode.segmentStart;
+            if (leftSegmentLength > rightSegmentLength) {
+                newNode = new Node(currentNode.depth, currentNum + 1, currentNode.segmentEnd);
+                currentNode.segmentEnd = currentNum - 1;
+            } else {
+                newNode = new Node(currentNode.depth, currentNode.segmentStart, currentNum - 1);
+                currentNode.segmentStart = currentNum + 1;
+            }
 
-            if (rightSegmentLength < leftSegmentLength) {
+            for (int j = newNode.segmentStart; j <= newNode.segmentEnd; j++) {
+                nodes[j] = newNode;
+            }
+
+            /*if (rightSegmentLength < leftSegmentLength) {
                 replaceNodes(nodes, currentNum + 1, nodes[currentNum].segmentEnd);
                 nodes[currentNum].depth++;
                 nodes[currentNum].segmentEnd = currentNum - 1;
@@ -30,22 +44,22 @@ public class Main {
                 replaceNodes(nodes, nodes[currentNum].segmentStart, currentNum - 1);
                 nodes[currentNum].depth++;
                 nodes[currentNum].segmentStart = currentNum + 1;
-            }
+            }*/
         }
 
         WRITER.close();
     }
 
-    private static void replaceNodes(Node[] nodes, int from, int to) {
+    /*private static void replaceNodes(Node[] nodes, int from, int to) {
         if (from > to) {
             return;
         }
-
+    
         Node node = new Node(nodes[from].depth + 1, from, to);
         for (int i = from; i <= to; i++) {
             nodes[i] = node;
         }
-    }
+    }*/
 
     private static int[] readSequence() throws IOException {
         int length = Integer.parseInt(READER.readLine());
