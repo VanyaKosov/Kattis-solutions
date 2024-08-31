@@ -1,0 +1,11 @@
+1
+1 8
+expansiveCar 100000 1000 100
+0 someone p expansiveCar
+3 other p expansiveCar
+6 someone a 100
+8 other a 100
+1 someone r 1
+2 someone p expansiveCar
+7 other r 10
+6 someone r 1
